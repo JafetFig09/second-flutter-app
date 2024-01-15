@@ -1,0 +1,90 @@
+{
+    "nombreApp": "Parctica Dos",
+    "rutas": [
+        {
+            "ruta": "animate",
+            "icon": "gif_box",
+            "text": "Animate a widget"
+        },
+        {
+            "ruta": "navigate",
+            "icon": "assistant_direction",
+            "text": "Navigate to a new widget"
+        },
+        {
+            "ruta": "navigate_routes",
+            "icon": "swap_horiz",
+            "text": "Navigate with named routes"
+        },
+        {
+            "ruta": "arguments_route",
+            "icon": "gswitch_access_shortcut",
+            "text": "Pass arguments to a named route"
+        },
+        {
+            "ruta": "links_android",
+            "icon": "link",
+            "text": "Set up app links for Android"
+        },
+        {
+            "ruta": "return_screen",
+            "icon": "exit_to_app",
+            "text": "Return data from a screen"
+        },
+        {
+            "ruta": "send_data",
+            "icon": "send",
+            "text": "Send data to a new screen"
+        },
+        {
+            "ruta": "data_internet",
+            "icon": "cloud_download",
+            "text": "Fetch data from the internet"
+        },
+        {
+            "ruta": "request",
+            "icon": "cloud_done",
+            "text": "Make authenticated requests"
+        },
+        {
+            "ruta": "send_data_internet",
+            "icon": "cloud_upload",
+            "text": "Send data to the internet"
+        },
+        {
+            "ruta": "update_data_internet",
+            "icon": "upgrade",
+            "text": "Update data over the internet"
+        },
+        {
+            "ruta": "delete_data_internet",
+            "icon": "delete",
+            "text": "Delete data on the internet"
+        },
+        {
+            "ruta": "websokets",
+            "icon": "communication",
+            "text": "Communicate with WebSockets"
+        },
+        {
+            "ruta": "parse_json",
+            "icon": "data_object",
+            "text": "Parse JSON in the background"
+        },
+        {
+            "ruta": "sqlite",
+            "icon": "database",
+            "text": "Persist data with SQLite"
+        },
+        {
+            "ruta": "ride_wride_files",
+            "icon": "note_add",
+            "text": "Read and write files"
+        },
+        {
+            "ruta": "store_disk",
+            "icon": "save",
+            "text": "Store key-value data on disk"
+        }
+    ]
+}
