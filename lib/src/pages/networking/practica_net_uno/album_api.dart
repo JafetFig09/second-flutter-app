@@ -40,7 +40,7 @@ class _ApiAlbumState extends State<ApiAlbum> {
                     child: Column(
                      mainAxisSize: MainAxisSize.min,
                       children: [
-                       Text('User Id: ${snapshot.data!.userId}', style: style),
+                       
                         Text('Id: ${snapshot.data!.id}', style: style,),
                         Text(
                         'Title: ${snapshot.data!.title}',

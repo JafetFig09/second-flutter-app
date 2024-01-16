@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: _list());
+        body: _list()
+    );
   }
 
   Widget _list() {
@@ -50,6 +51,7 @@ class HomePage extends StatelessWidget {
         ..add(const Divider());
     }
 
+    
     return options;
   }
 }

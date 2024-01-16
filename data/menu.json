@@ -42,11 +42,6 @@
             "text": "Fetch data from the internet"
         },
         {
-            "ruta": "request",
-            "icon": "cloud_done",
-            "text": "Make authenticated requests"
-        },
-        {
             "ruta": "send_data_internet",
             "icon": "cloud_upload",
             "text": "Send data to the internet"

@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: getApplicationRoutes(),
-    
+      
        onGenerateRoute: (settings) {
  
         if (settings.name == PassArgumentsScreen.routeName) {

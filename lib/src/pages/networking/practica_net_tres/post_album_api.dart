@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:practicas_dos/src/providers/post_album.dart';
 import 'package:practicas_dos/utils/album.dart';
-class BuildAlbumnApi extends StatefulWidget {
-  const BuildAlbumnApi({super.key});
+
+
+class BuildAlbumApi extends StatefulWidget {
+  const BuildAlbumApi({super.key});
 
   @override
-  State<BuildAlbumnApi> createState() => _BuildAlbumnApiState();
+  State<BuildAlbumApi> createState() => _BuildAlbumApiState();
 }
 
-class _BuildAlbumnApiState extends State<BuildAlbumnApi> {
+class _BuildAlbumApiState extends State<BuildAlbumApi> {
   final TextEditingController _controller = TextEditingController();
   Future<Album>? _futureAlbum;
   
@@ -19,6 +21,12 @@ class _BuildAlbumnApiState extends State<BuildAlbumnApi> {
         title: const Text('Send Data to the internet'),
         centerTitle: true,
         backgroundColor: Colors.blue,
+      ),
+
+      body: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(8),
+        child: (_futureAlbum == null) ? buildColumn() : buildFutureBuilder(),
       ),
     );
   }
