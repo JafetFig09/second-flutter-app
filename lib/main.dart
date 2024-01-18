@@ -1,10 +1,17 @@
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:practicas_dos/routes/routes.dart';
 import 'package:practicas_dos/src/pages/navigation/practica_cuatro/pass_argument_screen.dart';
 import 'package:practicas_dos/src/pages/navigation/practica_cuatro/screen_argument.dart';
+// import 'package:practicas_dos/src/providers/provider_dog.dart';
+// import 'package:practicas_dos/utils/dog.dart';
 // import 'package:practicas_dos/src/pages/home.dart';
 
-void main() {
+// ignore: duplicate_ignore
+void main() async {
+ 
+
   runApp(const MainApp());
 }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practicas_dos/src/pages/persistence/practica_persistence_uno/sqlite.dart';
 import 'package:practicas_dos/src/pages/screen.dart';
+import 'package:practicas_dos/utils/counter_storage.dart';
 
 List<Todo> myTodos = List<Todo>.generate(
   10, // Número de elementos en la lista
@@ -25,11 +27,10 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'send_data_internet': (BuildContext context) => const BuildAlbumApi(),
     'update_data_internet': (BuildContext context) => const UpdateAlbum(),
     'delete_data_internet': (BuildContext context) => const DeleteAlbum(),
-    'websokets': (BuildContext context) =>
-        const WebSocketApi(title: 'Websockets'),
+    'websokets': (BuildContext context) =>const WebSocketApi(title: 'Websockets'),
     'parse_json': (BuildContext context) => const ParseJson(),
-    'sqlite': (BuildContext context) => const HomePage(),
-    'ride_wride_files': (BuildContext context) => const HomePage(),
+    'sqlite': (BuildContext context) => SqlLitePage(title: 'SQLite', key: UniqueKey()),
+    'ride_wride_files': (BuildContext context) => CounterProvider(storage: CounterStorage()),
     'store_disk': (BuildContext context) => const HomePage(),
     '/second': (BuildContext context) => const SecondScreen(),
     '/extractArguments': (BuildContext constex) =>

@@ -14,3 +14,4 @@ export 'package:practicas_dos/src/pages/networking/practica_net_siete/parse_json
 export 'package:practicas_dos/src/pages/networking/practica_net_tres/post_album_api.dart';
 export 'package:practicas_dos/src/pages/networking/practica_net_uno/album_api.dart';
 export 'package:practicas_dos/utils/todo.dart';
+export 'package:practicas_dos/src/pages/persistence/practica_persistence_dos/count_provider.dart';

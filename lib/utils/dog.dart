@@ -23,3 +23,4 @@ class Dog {
     return 'Dog{id: $id, name: $name, age: $age}';
   }
 }
+
