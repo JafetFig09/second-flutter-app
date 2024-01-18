@@ -15,3 +15,4 @@ export 'package:practicas_dos/src/pages/networking/practica_net_tres/post_album_
 export 'package:practicas_dos/src/pages/networking/practica_net_uno/album_api.dart';
 export 'package:practicas_dos/utils/todo.dart';
 export 'package:practicas_dos/src/pages/persistence/practica_persistence_dos/count_provider.dart';
+export 'package:practicas_dos/src/pages/persistence/practica_persistence_tres/write_disk.dart';

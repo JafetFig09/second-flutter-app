@@ -22,11 +22,6 @@
             "text": "Pass arguments to a named route"
         },
         {
-            "ruta": "links_android",
-            "icon": "link",
-            "text": "Set up app links for Android"
-        },
-        {
             "ruta": "return_screen",
             "icon": "exit_to_app",
             "text": "Return data from a screen"

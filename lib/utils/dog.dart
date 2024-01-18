@@ -1,21 +1,25 @@
 class Dog {
-  final int id;
+  final int? id;
   final String name;
   final int age;
 
-  const Dog({
-    required this.id,
+  Dog({
+    this.id,
     required this.name,
     required this.age,
   });
 
-
   Map<String, dynamic> toMap() {
-    return {
-      'id': id,
+    var map = {
       'name': name,
       'age': age,
     };
+
+    if (id != null) {
+      map['id'] = id as Object;
+    }
+
+    return map;
   }
 
   @override
