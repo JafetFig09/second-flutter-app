@@ -15,9 +15,7 @@ class SqlLitePage extends StatefulWidget {
 
 class _SqlLitePageState extends State<SqlLitePage> {
   List<Dog> _dogs = [];
-
-
-
+  int id = 0;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _idController = TextEditingController();
@@ -31,29 +29,29 @@ class _SqlLitePageState extends State<SqlLitePage> {
   }
 
   void _insertDog() async {
-     if (_nameController.text.isEmpty || _ageController.text.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-           const SnackBar(content: Text('Llene todos los campos')),
-        );
-        return;
-      }
-
-      int? age = int.tryParse(_ageController.text);
-      if (age == null) {
+    if (_nameController.text.isEmpty || _ageController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-       const SnackBar(content: Text('solo numeros')),
+        const SnackBar(content: Text('Llene todos los campos')),
       );
-        return;
+      return;
     }
 
-     int? id = int.tryParse(_idController.text);
-      if (id == null) {
+    int? age = int.tryParse(_ageController.text);
+    if (age == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-       const SnackBar(content: Text('solo numeros')),
+        const SnackBar(content: Text('solo numeros')),
       );
-        return;
+      return;
     }
-   
+
+    // int? id = int.tryParse(_idController.text);
+    // if (id == null) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('solo numeros')),
+    //   );
+    //   return;
+    // }
+
     var fido = Dog(
       name: _nameController.text,
       age: int.parse(_ageController.text),
@@ -66,30 +64,30 @@ class _SqlLitePageState extends State<SqlLitePage> {
     _idController.clear();
   }
 
-  void _updateDog() async {
-     if (_nameController.text.isEmpty || _ageController.text.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-           const SnackBar(content: Text('Llena todos los campos')),
-        );
-        return;
-      }
-
-      int? age = int.tryParse(_ageController.text);
-      if (age == null) {
+  void _updateDog(int id) async {
+    if (_nameController.text.isEmpty || _ageController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-       const SnackBar(content: Text('solo numeros')),
+        const SnackBar(content: Text('Llena todos los campos')),
       );
-        return;
+      return;
     }
 
-     int? id = int.tryParse(_idController.text);
-      if (id == null) {
+    int? age = int.tryParse(_ageController.text);
+    if (age == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-       const SnackBar(content: Text('solo numeros')),
+        const SnackBar(content: Text('solo numeros')),
       );
-        return;
+      return;
     }
-    var dog = await getById(int.parse(_idController.text));
+
+    // int? id = int.tryParse(_idController.text);
+    // if (id == null) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('solo numeros')),
+    //   );
+    //   return;
+    // }
+    var dog = await getById(id);
     var fido = Dog(
       id: dog.id,
       name: _nameController.text,
@@ -102,16 +100,8 @@ class _SqlLitePageState extends State<SqlLitePage> {
     _idController.clear();
   }
 
-  void _deleteDog() async {
-    
-     int? id = int.tryParse(_idController.text);
-      if (id == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-       const SnackBar(content: Text('solo numeros')),
-      );
-        return;
-    }
-    await deleteDog(int.parse(_idController.text));
+  void _deleteDog(int id) async {
+    await deleteDog(id);
     _updateDogList();
     _nameController.clear();
     _ageController.clear();
@@ -164,20 +154,20 @@ class _SqlLitePageState extends State<SqlLitePage> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 20),
-                    const Text('Id del perro:'),
-                    TextFormField(
-                      controller: _idController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        if (int.tryParse(value) == null) {
-                          return 'Please enter a valid number';
-                        }
-                        return null;
-                      },
-                    )
+                    // const SizedBox(height: 20),
+                    // const Text('Id del perro:'),
+                    // TextFormField(
+                    //   controller: _idController,
+                    //   validator: (value) {
+                    //     if (value == null || value.isEmpty) {
+                    //       return 'Please enter some text';
+                    //     }
+                    //     if (int.tryParse(value) == null) {
+                    //       return 'Please enter a valid number';
+                    //     }
+                    //     return null;
+                    //   },
+                    // )
                   ],
                 ),
               ),
@@ -201,6 +191,17 @@ class _SqlLitePageState extends State<SqlLitePage> {
                           title: Text(
                               'ID: ${_dogs[index].id}, Name: ${_dogs[index].name}'),
                           subtitle: Text('Age: ${_dogs[index].age}'),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () {
+                              _deleteDog(_dogs[index].id!);
+                            },
+                          ),
+                          onTap: () {
+                            _nameController.text = _dogs[index].name;
+                            _ageController.text = _dogs[index].age.toString();
+                            id = _dogs[index].id!;
+                          },
                         );
                       },
                     );
@@ -223,17 +224,17 @@ class _SqlLitePageState extends State<SqlLitePage> {
           const SizedBox(height: 20),
           FloatingActionButton(
             heroTag: 'hero2',
-            onPressed: _updateDog,
+            onPressed: () => _updateDog(id),
             tooltip: 'Update Dog',
             child: const Icon(Icons.update),
           ),
-          const SizedBox(height: 20),
-          FloatingActionButton(
-            heroTag: 'hero3',
-            onPressed: _deleteDog,
-            tooltip: 'Delete Dog',
-            child: const Icon(Icons.delete),
-          ),
+          // const SizedBox(height: 20),
+          // FloatingActionButton(
+          //   heroTag: 'hero3',
+          //   onPressed: _deleteDog,
+          //   tooltip: 'Delete Dog',
+          //   child: const Icon(Icons.delete),
+          // ),
         ],
       ),
     );

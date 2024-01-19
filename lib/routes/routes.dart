@@ -29,7 +29,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'delete_data_internet': (BuildContext context) => const DeleteAlbum(),
     'websokets': (BuildContext context) =>const WebSocketApi(title: 'Websockets'),
     'parse_json': (BuildContext context) => const ParseJson(),
-    'sqlite': (BuildContext context) => SqlLitePage(title: 'SQLite', key: UniqueKey()),
+    'sqlite': (BuildContext context) => SqlLitePage(title:'SQLite ', key: UniqueKey()),
     'ride_wride_files': (BuildContext context) => CounterProvider(storage: CounterStorage()),
     'store_disk': (BuildContext context) => const WriteDisk(title: 'Store key-value data on disk'),
     '/second': (BuildContext context) => const SecondScreen(),
